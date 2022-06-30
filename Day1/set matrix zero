@@ -1,1 +1,34 @@
-
+#include <bits/stdc++.h> 
+void setZeros(vector<vector<int>> &matrix)
+{
+	// Write your code here.
+    int x=0,y=0;
+    int row=matrix.size();
+    int col=matrix[0].size();
+    vector<int> temp1(row,-1),temp2(col,-1);
+    
+    for(int i=0;i<row;i++)
+    {
+        for(int j=0;j<col;j++)
+        {
+            if(matrix[i][j]==0)
+            {
+                temp1[i]=0,temp2[j]=0;
+            }
+        }
+    }
+    for(int i=0;i<row;i++)
+    {
+        for(int j=0;j<col;j++)
+        {
+            if(temp1[i]==0 || temp2[j]==0)
+            {
+                matrix[i][j]=0;
+            }
+        }
+    }
+    
+    
+    
+    
+}
