@@ -11,3 +11,6 @@ Day2
 
 Day 3
 ![image](https://user-images.githubusercontent.com/67210617/177197258-ee887947-4d01-46c0-ab01-a8c287a6d02e.png)
+
+Day4
+![image](https://user-images.githubusercontent.com/67210617/177473507-048286e2-0fe7-447a-ab2c-5b60c8eeae2b.png)
