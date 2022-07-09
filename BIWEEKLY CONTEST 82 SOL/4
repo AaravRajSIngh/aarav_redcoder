@@ -1,0 +1,28 @@
+https://leetcode.com/contest/biweekly-contest-82/problems/subarray-with-elements-greater-than-varying-threshold/
+
+
+class Solution {
+public:
+    
+    int dfs(vector<int>& nums,int lo,int hi, int threshold)
+    {
+        if(lo>hi) return  -1;
+        int len=hi-lo+1;
+        for(int i=lo;i<=hi;i++)
+        {
+            if((long long )nums[i]*len<=threshold)
+            {
+                return max(dfs(nums,lo,i-1,threshold),dfs(nums,i+1,hi,threshold));
+            }
+        }
+        return (hi-lo+1);
+    }
+    
+    
+    
+    int validSubarraySize(vector<int>& nums, int threshold) {
+        
+        return dfs(nums,0,nums.size()-1,threshold);
+        
+    }
+};
