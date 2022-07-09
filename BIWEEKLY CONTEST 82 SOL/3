@@ -1,0 +1,43 @@
+https://leetcode.com/contest/biweekly-contest-82/problems/minimum-sum-of-squared-difference/
+
+
+class Solution {
+public:
+    long long minSumSquareDiff(vector<int>& nums1, vector<int>& nums2, int k1, int k2) {
+        
+        vector<int> diff((int)1e5+1);
+        int g=nums1.size();
+        //find size
+        for(int i=0;i<g;i++)
+        {
+            diff[abs(nums1[i]-nums2[i])]++;
+        }
+        
+        int acc=0,val=0,left=k1+k2;
+        //loop for iterating
+        for(int i=(int)1e5;i>=0;i--)
+        {
+            acc=diff[i];
+            if(acc<=left)
+            {
+                if(i<=1) return 0;
+                diff[i-1]+=diff[i];
+                diff[i]=0;
+                left-=acc;
+            }
+            else
+            {
+                if(i==0) return 0;
+                diff[i]-=left;
+                diff[i-1]+=left;
+                break;
+            }
+        }
+        long long ans=0;
+        for(int i=1ll;i<=1e5;i++)
+        {
+            ans+=(long long)diff[i]*((long long)i*i);
+            
+        }return ans;
+    }
+};
