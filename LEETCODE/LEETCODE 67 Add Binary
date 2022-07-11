@@ -1,0 +1,22 @@
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        int L = max(a.length(), b.length());
+        a = string(L-a.length(),'0') + a;
+        b = string(L-b.length(),'0') + b;
+        
+        string res = "";
+        int cry = 0;
+        int i=L-1;
+        char dig;
+        while(i>-1){
+            dig = (a[i]-'0') ^ (b[i]-'0') ^ cry +'0';
+            res.push_back(dig);
+            cry = (a[i]-'0') + (b[i]-'0') + cry >= 2 ? 1 : 0;
+            i--;
+        }
+        if(cry && i==-1) res.push_back('1');
+        reverse(res.begin(), res.end());
+        return res;
+    }
+};
