@@ -1,3 +1,38 @@
+Solution 1:
+//2pointer most optimal solution
+
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        
+        int n=nums.size();
+        
+        int nonzeo=0;
+        
+        for(int i=0;i<n;i++)
+        {
+            if(nums[i]!=0)
+            {
+                swap(nums[nonzeo++],nums[i]);
+            }
+        }
+        
+        
+        
+        
+    }
+};
+
+
+
+
+
+
+
+//solution 2:
+//best came up
+
+
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
