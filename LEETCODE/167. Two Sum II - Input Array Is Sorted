@@ -1,0 +1,52 @@
+//2 solution ,accepted one is 2nd one.
+//verdict solution 1: Time Limit Exceeded
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        
+    //brute force
+        //TLE
+        
+        int n=numbers.size();
+        
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if(numbers[i]+numbers[j]==target)
+                    
+                    return {i+1,j+1};
+            }
+        }
+        
+        return {-1,-1};
+    }
+};
+
+
+//solution 2 accepted
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        
+        int first=0;
+        int last=numbers.size()-1;
+        
+        
+        while(first<last)
+        {
+           int sum=numbers[first]+numbers[last];
+            
+            if(sum>target) last--;
+            
+            else if(sum<target) first++;
+            
+            else
+            
+                return {first+1, last+1};
+        }
+        
+        return {-1,-1};    }
+};
