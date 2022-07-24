@@ -1,4 +1,4 @@
-//Solution 1 accepted
+//Solution 1 accepted (better than 45%)
 
 class Solution {
 public:
@@ -11,7 +11,7 @@ public:
 
 
 
-//solution 2 accepted
+//solution 2 accepted (better than 96%)
 
 class Solution {
 public:
