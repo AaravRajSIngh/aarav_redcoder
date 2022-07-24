@@ -1,0 +1,50 @@
+class Solution {
+public:
+    
+    string takeon(string temp)
+    {
+        int f=0;
+        int last=temp.size()-1;
+        
+        
+        while(f<=last)
+        {
+            swap(temp[f++],temp[last--]);
+        }
+        
+        return temp;
+    }
+    
+    
+    
+    
+    
+    
+    
+    string reverseWords(string s) {
+        
+        string ans="";
+        s=s+" ";
+        
+        int n=s.size()-1;
+        
+        
+        string temp="";
+        for(int i=0;i<=n;i++)
+        {
+            if(s[i]!=' ')
+            {
+                temp=temp+s[i];
+            }
+            else{
+                ans=ans+takeon(temp)+" ";
+                temp="";
+            }
+        }
+        
+        
+        ans.pop_back();
+        return ans;
+        
+    }
+};
