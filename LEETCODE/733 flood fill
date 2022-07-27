@@ -1,0 +1,34 @@
+class Solution {
+public:
+    void dfs(vector<vector<int>>& image, int sr, int sc, int color, int orgnColor, vector<vector<bool>>&vis){
+    
+    if(sr<0 || sc<0 || sr>=image.size() || sc>=image[0].size() || vis[sr][sc] ||
+       image[sr][sc]!=orgnColor ){
+        return ;
+    }
+    
+    vis[sr][sc]=true;
+    image[sr][sc]=color;
+    
+    dfs(image,sr+1,sc,color,orgnColor,vis);
+    dfs(image,sr-1,sc,color,orgnColor,vis);
+    dfs(image,sr,sc+1,color,orgnColor,vis);
+    dfs(image,sr,sc-1,color,orgnColor,vis);
+}
+
+vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+    
+    int r=image.size(), c=image[0].size();
+    vector<vector<bool>> vis(r,vector<bool>(c,false));
+    
+    int orgnColor=image[sr][sc];
+    
+    dfs(image,sr,sc,color,orgnColor,vis);
+    
+    return image;
+    
+}
+        
+        
+    
+};
