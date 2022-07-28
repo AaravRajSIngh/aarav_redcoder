@@ -1,0 +1,59 @@
+/*
+116. Populating Next Right Pointers in Each Node
+Description
+Hints
+Submissions
+Discuss
+Solution
+      
+Simplest approach c++
+Simplest approach c++
+33
+VIEWS
+0
+Created at: a day ago
+
+Sandeep-786
+Sandeep-786
+ 2
+Approch:- Do level order transveral;
+And then q.front element should be point to next queue element
+*/
+class Solution {
+public:
+    void transversal(queue<Node*>&q){
+        
+        while(q.empty()==false){
+     
+            while(q.front()!=NULL){
+                Node* node = q.front();
+          
+                if(node->left){
+                    q.push(node->left);
+                }
+                if(node->right){
+                    q.push(node->right);
+                }
+                
+                q.pop();
+				//node is front element and q.front() is next element;
+                node->next=q.front();
+            }
+            
+            q.pop();
+            if(q.empty()==false and q.front()!=NULL){
+                q.push(NULL);
+            }
+            
+        }
+    }
+    
+    Node* connect(Node* root) {
+        
+        queue<Node* >q;
+        q.push(root);
+        q.push(NULL);
+        transversal(q);
+        return root;
+    }
+};
